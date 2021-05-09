@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Kevin Cai</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/newscraper/main.css">
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html"></a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="/coronavirus" target="_blank">Coronavirus</a></li>
+											<li><a href="/uk" target="_blank">UK</a></li>
+											<li><a href="/world" target="_blank">World</a></li>
+											<li><a href="/business" target="_blank">Business</a></li>
+											<li><a href="/politics" target="_blank">Politics</a></li>
+											<li><a href="/technology" target="_blank">Technology</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2>Newscraper</h2>
+							<p>Choose a news catagory below:</p>
+							<h6>(Due to server speed, webpage may take up to 20 seconds to load)</h6>
+							<br>
+							<ul class="actions special">
+								<li><a href="/coronavirus" class="button primary" target="_blank">Coronavirus</a></li>
+								<li><a href="/uk" class="button primary" target="_blank">UK</a></li>
+								<li><a href="/world" class="button primary" target="_blank">World</a></li>
+								<li><a href="/business" class="button primary" target="_blank">Business</a></li>
+								<li><a href="/politics" class="button primary" target="_blank">Politics</a></li>
+								<li><a href="/technology" class="button primary" target="_blank">Technology</a></li>
+							</ul>
+						</div>
+						<a href="#info" class="more scrolly">Information</a>
+					</section>
+
+				<!-- PROJECTS -->
+					<section id="info" class="wrapper style3 special">
+						<div class="inner">
+							<header class="major">
+								<h2>What is Newscraper?</h2>
+								<p>Newscraper is an app made by myself (Kevin Cai), which webscrapes BBC News for the latest news in various catagories and summarises the latest articles
+									to save YOU time! <br>
+								Below I have listed the technologies it uses and how they work together to form this app!</p>
+							</header>
+							<ul class="features">
+								<li class="fab fa-python">
+									<h3>Python - Beautiful Soup Module</h3>
+									<ul>
+										<p>Using Beautiful Soup, the program searches for the BBC webpoage for each specific catagory,
+											it then looks for the first 5 articles published today in reverse chronological order.
+											Next it finds the title of the page by specifically looking at the classNames of each heading.
+											Finally, it finds all of the &ltp&gt paragraph tags, which contain the content of the webpage.
+										</p>
+									</ul>
+								</li>
+								<li class="fas fa-broom">
+									<h3>Syntactic cleaning</h3>
+									<p>Text found in paragraph tags is then appended to a single string, with commonly occuring strings of information removed.
+									An example of this is <i>"Share this withEmailFacebookMessengerMessengerTwitterPinterestWhatsAppLinkedInCopy this linkThese are external links and will open in a new window".</i>
+									I explain why this is important in the <strong>Extractive Summarising Algorithm</strong> box.
+									</p>
+									 
+								<li class="fas fa-pencil-alt">
+									<h3>Extractive summarising algorithm</h3>
+									<p>This summarising algorithm was developed by <a href="https://www.kdnuggets.com/author/matt-mayo">Matthew Mayo</a>. 
+									The algorithm works by dividing a text into sentences and giving them a score. This score determines how important
+								the information is by weighting different features such as: rarity of words, word length and sentence length. It is 
+							therefore, important that we syntactically clean the information, since information that needs to be cleaned will score highly since it is often long, nonsensical gibberish!
+									</p>
+								</li>
+								<li class="fas fa-laptop-code">
+									<h3>Python - Django Framework</h3>
+									<p>This project runs on Django, a web development framework in Python. It allows us to create dynamic webpages
+										using HTML, CSS, Javascript and Python. Using Django, we can drastically reduce the number of files needed for this project to work by reusing HTML templates, and 
+										using a langauge called Jinja to dynamically input the titles and summaries of each news catagory.
+									</p>
+								</li>
+								<li class="fas fa-server">
+									<h3>Heroku Webservice</h3>
+									<p>Heroku is a web-hosting service that allows developers to run applications in the cloud. You are currently using a Heroku Server!
+
+									</p>
+								</li>
+								<li class="fas fa-align-justify">
+									<h3>Multithreading</h3>
+									<p>Utilised Pythons Threading module to run summarising algorithm in multiple threads reducing run time by 50%.
+									</p>
+								</li>
+								
+							</ul>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+					<h5>Disclaimer: BBC News owns the rights to the news content on this website.</h5>
+					<h4>Media Links:</h4>
+					<ul class="icons">
+						<li><a href="https://github.com/KevinLCai" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/kevin-cai-524572173/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Kevin Cai</li>
+						<li>KevinLCai@Outlook.com</li>
+					</ul>
+				</footer>
+			</div>
+
+		<!-- Scripts --> 
+			<script src="{% static 'newscraper/jquery.min.js' %}"></script>
+			<script src="{% static 'newscraper/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'newscraper/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'newscraper/browser.min.js' %}"></script>
+			<script src="{% static 'newscraper/breakpoints.min.js' %}"></script>
+			<script src="{% static 'newscraper/util.js' %}"></script>
+			<script src="{% static 'newscraper/main.js' %}"></script>
+
+	</body>
+</html>

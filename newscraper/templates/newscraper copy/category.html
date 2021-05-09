@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>{{ catagory}} News</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/newscraper/main.css">
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html"></a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+										<li><a href="/coronavirus">Coronavirus</a></li>
+										<li><a href="/uk">UK</a></li>
+										<li><a href="/world">World</a></li>
+										<li><a href="/business">Business</a></li>
+										<li><a href="/politics">Politics</a></li>
+										<li><a href="/technology">Technology</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Today's {{ catagory }} news</h2>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<h3>{{ title1 }}</h3>
+								<p>{{ summary1 }}</p>
+
+								<hr />
+
+								<h3>{{ title2 }}</h3>
+								<p>{{ summary2 }}</p>
+
+								<hr />
+
+								<h3>{{ title3 }}</h3>
+								<p>{{ summary3 }}</p>
+
+								<hr />
+
+								<h3>{{ title4 }}</h3>
+								<p>{{ summary4 }}</p>
+
+								<hr />
+
+								<h3>{{ title5 }}</h3>
+								<p>{{ summary5 }}</p>
+
+								<hr />
+
+								<h5 style="text-align: center;">If you'd like to verify these are indeed the latest headlines:</h5>
+								{% if catagory == 'US Election' %}
+								<p style="text-align: center;"><a href="https://www.bbc.co.uk/news/election/us2020" target="_blank">Click here to go to BBC News</a></p>
+								{% else %}
+								<p style="text-align: center;"><a href="https://www.bbc.co.uk/news/{{ catagory|lower }}" target="_blank">Click here to go to BBC News</a></p>
+								{% endif %}
+								<h5 style="text-align: center;">Source code:</h5>
+								<p style="text-align: center;"><a href="https://github.com/KevinLCai/Newscraper-App" target="_blank">Click here for the code!</a></p>
+
+								
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+				
+				<footer id="footer">
+					<h5>Disclaimer: BBC News owns the rights to the news content on this website.</h5>
+					<h4>Media Links:</h4>
+					<ul class="icons">
+						<li><a href="https://github.com/KevinLCai" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://www.linkedin.com/in/kevin-cai-524572173/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Kevin Cai</li>
+						<li>KevinLCai@Outlook.com</li>
+					</ul>
+				</footer>
+
+			</div>
+
+		<!-- Scripts -->
+		<script src="{% static 'newscraper/jquery.min.js' %}"></script>
+		<script src="{% static 'newscraper/jquery.scrollex.min.js' %}"></script>
+		<script src="{% static 'newscraper/jquery.scrolly.min.js' %}"></script>
+		<script src="{% static 'newscraper/browser.min.js' %}"></script>
+		<script src="{% static 'newscraper/breakpoints.min.js' %}"></script>
+		<script src="{% static 'newscraper/util.js' %}"></script>
+		<script src="{% static 'newscraper/main.js' %}"></script>
+		
+
+	</body>
+</html>
